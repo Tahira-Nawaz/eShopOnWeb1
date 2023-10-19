@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: tahira
+  RESOURCE-GROUP: Tahira-rg
   LOCATION: westeurope
   TEMPLATE-FILE: .azure/bicep/webapp.bicep
   SUBSCRIPTION-ID: eeb9dfdd-9c17-44c3-a4a0-7529399ce200
@@ -73,6 +73,10 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Azure CLI Create resource group  
+      uses: Azure/cli@1.0.4
+      with:
+         inlineScript: az group create -n ${{ env.RESOURCE-GROUP }} -l 'West Europe'    
            
     # Deploy Azure WebApp using Bicep file
     - name: deploy

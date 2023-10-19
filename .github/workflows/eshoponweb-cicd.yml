@@ -8,7 +8,7 @@ env:
   RESOURCE-GROUP: Tahira-rg
   LOCATION: westeurope
   TEMPLATE-FILE: .azure/bicep/webapp.bicep
-  SUBSCRIPTION-ID: eeb9dfdd-9c17-44c3-a4a0-7529399ce200
+  SUBSCRIPTION-ID: ${{ secrets.subscriptionId }}
   WEBAPP-NAME: az400-webapp-tahira00test
 
 
